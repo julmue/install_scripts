@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sudo apt-get update
+
+# install emacs
+apt-get -y install emacs
+
+# install spacemacs
+sudo -H -u jules git clone https://github.com/syl20bnr/spacemacs ${HOME}/.emacs.d 
+
+# get dotfile from github
+sudo -H -u jules git clone https://github.com/julmue/dotfile_spacemacs ${HOME}/Dotfiles/spacemacs
+
+# get private layers from github
+# TODO
+
+# install dictionaries for aspell
+
+# link dotfile 
+sudo -H -u jules ln --symbolic --force ${HOME}/Dotfiles/spacemacs/spacemacs ${HOME}/.spacemacs
+
+# Haskell layer dependencies
+# * stack
+# * intero
+# * hlint (does intero resolve that???)
+# * hindent
+

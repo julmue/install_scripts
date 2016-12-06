@@ -1,0 +1,113 @@
+#!/bin/bash
+
+PROGNAME="install-haskell-stack"
+
+#################################################################################
+# Checking Preliminaries
+#################################################################################
+
+echo "$PROGNAME: checking preliminaries"
+
+# Preliminary 1: We are on Ubuntu
+DISTRIBUTOR=$(lsb_release --id --short)
+
+echo "Preliminary 1: Distribution is Ubuntu"
+
+if [[ $DISTRIBUTOR == 'Ubuntu' ]]; then
+    echo "CHECK"
+else
+    echo "Error: install-haskell-stack works only on Ubuntu" >&2
+    echo "This is $DISTRIBUTOR" >&2
+    exit 1
+fi
+
+# Preliminary 2: It's a supported version
+VERSION=$(lsb_release --release --short)
+
+echo "Preliminary 2: Version is supported"
+
+case $VERSION in
+    16.10)
+        echo "Found supported version 16.10 - CHECK"
+        ;;
+    16.04)
+        echo "Found supported version 16.04 - CHECK"
+        ;;
+    15.10)
+        echo "Found supported version 15.10 - CHECK"
+        ;;
+    14.04)
+        echo "Found supported version 14.04 - CHECK"
+        ;;
+    12.04)
+        echo "Found supported version 12.04 - CHECK"
+        ;;
+    *)
+        echo "Error: Version not supported" >&2
+        exit 1
+        ;;
+esac
+
+
+#################################################################################
+# Installing Program
+#################################################################################
+
+echo "Installing Program"
+
+
+# Task 1: Get the FP Complete key:
+
+echo "Task 1: Getting FP Complete Key"
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689BEFB442
+
+echo "Done"
+
+
+
+# Task 2: Add the appropriate source repository
+
+echo "Task 2: Add the appropriate source repository"
+
+case $VERSION in
+    16.10)
+        echo 'deb http://download.fpcomplete.com/ubuntu yakkety main'|sudo tee /etc/apt/sources.list.d/fpco.list
+        ;;
+    16.04)
+        echo 'deb http://download.fpcomplete.com/ubuntu xenial main'|sudo tee /etc/apt/sources.list.d/fpco.list
+        ;;
+    15.10)
+        echo 'deb http://download.fpcomplete.com/ubuntu wily main'|sudo tee /etc/apt/sources.list.d/fpco.list
+        ;;
+    14.04)
+        echo 'deb http://download.fpcomplete.com/ubuntu trusty main'|sudo tee /etc/apt/sources.list.d/fpco.list
+        ;;
+    12.04)
+        echo 'deb http://download.fpcomplete.com/ubuntu precise main'|sudo tee /etc/apt/sources.list.d/fpco.list
+        ;;
+    *)
+        echo "Error: Version not supported" >&2
+        exit 1
+        ;;
+esac
+
+echo "Done"
+
+
+# Task 3: Update apt and install
+
+echo "Task 3: Update apt and install"
+
+sudo apt-get update && sudo apt-get install stack -y
+
+
+# Task 4: Setting up stack
+
+echo "Task 4: Setting up stack"
+
+stack setup --allow-different-user
+
+
+# Info:
+# 'stack' installs executables to '$HOME/.local/bin'

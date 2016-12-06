@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo apt-get update
+
+# visual package management
+apt get-get -y install synaptic

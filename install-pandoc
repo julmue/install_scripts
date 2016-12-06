@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# install pandoc from the repositories and not from stack
+# to get the templates
+
+sudo apt-get update 
+sudo apt-get -y install pandoc
+
+sudo -H -u jules mkdir ${HOME}/.pandoc
+sudo -H -u jules mkdir ${HOME}/.pandoc/templates
+

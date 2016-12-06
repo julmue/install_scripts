@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo apt-get update
+
+# tweak tools to remap keyboard and stuff
+sudo apt-get -y install gnome-tweak-tool 
+
+# remove amazon cruft
+sudo apt-get purge unity-webapps-common

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sudo apt-get update 
+sudo apt-get -y install git
+
+# we have to provide some initial configuration
+printf "[user]\n	email = jul.mue@hotmail.de\n	name = jules" > ${HOME}/.gitconfig
+
+# create the dotfile directory if it does not exists
+if [[ ! -d ${HOME}/Dotfiles ]]; then
+    sudo -H -u jules mkdir ${HOME}/Dotfiles
+fi
+
+sudo -H -u jules git clone https://github.com/julmue/dotfile_git ${HOME}/Dotfiles/git
+
+# link
+sudo -H -u jules ln --symbolic --force ${HOME}/Dotfiles/git/gitconfig ${HOME}/.gitconfig

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+git clone https://github.com/julmue/dotfile_ghc ${HOME}/Dotfiles/ghc
+
+ln --symbolic --force ${HOME}/Dotfiles/ghc ${HOME}/.ghc
+
+chmod 700 ${HOME}/.ghc
+chmod 700 ${HOME}/.ghc/ghci.conf

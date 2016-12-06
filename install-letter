@@ -1,0 +1,23 @@
+#!/bin/bash
+
+git clone https://github.com/julmue/letter ${HOME}/Projects/letter
+
+cd ${HOME}/Projects/letter
+
+if [[ ! -d ${HOME}/.pandoc ]]; then
+    mkdir ${Home}/.pandoc
+fi
+
+if [[ ! -d ${HOME}/.pandoc/templates ]]; then
+    mkdir ${HOME}/.pandoc/templates
+fi
+
+ln -s ${HOME}/Projects/letter/letter.latex ${HOME}/.pandoc/templates/letter.latex
+
+if [[ ! -d ${HOME}/bin ]]; then
+    mkdir ${HOME}/bin
+fi
+
+ln --symbolic --force ${HOME}/Projects/letter/executables/letter ${HOME}/bin/letter
+ln --symbolic --force ${HOME}/Projects/letter/executables/letter-din-de ${HOME}/bin/letter-din-de
+

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+stack install intero --allow-different-user

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+stack install hlint --allow-different-user

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+sudo apt-get update
+
+sudo apt-get -y install vim
+sudo apt-get -y install vim-gtk3-py2
+
+sudo -H -u jules git clone https://github.com/julmue/dotfile_vim ${HOME}/Dotfiles/vim
+
+sudo -H -u jules ln --symbolic --force ${HOME}/Dotfiles/vim ${HOME}/.vim
+sudo -H -u jules ln --symbolic --force ${HOME}/Dotfiles/vim/vimrc ${HOME}/.vimrc
+
+# install pathogen package management for vim
+sudo -H -u jules mkdir -p ~/.vim/autoload ~/.vim/bundle
+sudo -H -u jules curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# download packages
+sudo -H -u jules git clone https://github.com/scrooloose/nerdtree.git ${HOME}/.vim/bundle/nerdtree
+sudo -H -u jules git clone https://github.com/easymotion/vim-easymotion ${HOME}/.vim/bundle/vim-easymotion

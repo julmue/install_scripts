@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# essential stuff
+./install-buildtools
+./git
+./ubuntu-essentials
+
+# shell
+./install-zsh
+
+# haskell and environment
+./install-haskell-ghc
+./install-haskell-stack
+./install-haskell-intero
+./install-haskell-hlint
+./install-haskell-hindent
+
+# text editors
+./install-vim
+./install-spacemacs
+./install-geany
+
+# typography and fonts
+./install-latex
+./install-pandoc
+./install-letter
+
+# ui
+./install-guake
+
+# optimierung
+./install-preload
+
+# misc
+./install-graphic-tools
+./install-calibre
+./install-thunderbird
+
+# unity-essentials gets not installed by default
+# because of other distros like Lubuntu
+./install-unity-essentials

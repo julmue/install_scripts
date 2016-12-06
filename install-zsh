@@ -1,0 +1,19 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get -y install zsh
+
+git clone https://github.com/julmue/dotfile_zsh ${HOME}/Dotfiles/zsh
+
+ln --symbolic --force ${HOME}/Dotfiles/zsh ${HOME}/.zsh
+ln --symbolic --force ${HOME}/Dotfiles/zsh/zshrc ${HOME}/.zshrc
+
+git clone https://github.com/julmue/zsh-git-prompt ${HOME}/.zsh/zsh-git-prompt 
+
+# stack install 
+cd ~/.zsh/zsh-git-prompt
+stack setup --allow-different-user
+stack install --allow-different-user
+
+sudo -H -u jules chsh -s $(which zsh)
+

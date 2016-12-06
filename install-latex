@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo apt-get update
+
+# distribution
+sudo apt-get -y install texlive full
+
+# literaturverwaltung
+sudo apt-get -y install kbibtex
+
+# private texmf tree
+git clone https://github.com/julmue/texmf ${HOME}/texfm
