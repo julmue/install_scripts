@@ -16,3 +16,6 @@ sudo apt-get -y install guake
 # add shortcut to open local
 # add the following (uncommented) line to ~/.config/nautilus/accels (mnemonic: h - "here")
 # (gtk_accel_path "<Actions>/ExtensionsMenuGroup/NautilusPython::terminal" "<Primary><Alt>h")
+
+# Guake as standard terminal
+# sudo update-alternatives --config x-terminal-emulator

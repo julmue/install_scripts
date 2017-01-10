@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# mount home partition
+echo 'UUID=40ffc11e-a2fc-4969-a40f-30ac1ed89f6c /home ext4 defaults 0 2' >> /etc/fstab

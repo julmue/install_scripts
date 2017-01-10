@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git clone https://github.com/julmue/teleport ~/Playground
+cd ~/Playground/teleport
+stack install
