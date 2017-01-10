@@ -2,3 +2,17 @@
 
 sudo apt-get update
 sudo apt-get -y install guake
+
+
+# open gauke here shortcut
+# source: http://www.giuspen.com/nautilus-pyextensions/
+# sudo apt install nautilus-python
+# install folder: mkdir ~/.local/share/nautilus-python
+# cd ~/.local/share/nautilus
+# git clone https://github.com/julmue/Open-guake-here/blob/master/open_guake_here.py
+# ln -s ./open_guake_here/open_gauke_here.py open_guake_here.py
+# logout and enjoy
+
+# add shortcut to open local
+# add the following (uncommented) line to ~/.config/nautilus/accels (mnemonic: h - "here")
+# (gtk_accel_path "<Actions>/ExtensionsMenuGroup/NautilusPython::terminal" "<Primary><Alt>h")
